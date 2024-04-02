@@ -1,0 +1,370 @@
+@import "./mixin";
+
+body {
+    margin: 0;
+}
+
+
+
+
+a {
+    text-decoration: none;
+    color: black;
+}
+
+
+
+.header-menu {
+    font-family: "shrikhand", sans-serif;
+    text-align: center;
+    position: relative;
+
+}
+
+.arrow {
+    position: absolute;
+    left: 20px;
+    top: 5px;
+    font-size: 25px;
+
+}
+
+.menu {
+    background-color: #f6f6f6;
+    border-radius: 20px 20px 0px 0px;
+
+    width: 100%;
+
+    h2 {
+        font-family: "shrikhand", sans-serif;
+        padding-left: 20px;
+        font-size: 24px;
+        padding-top: 30px;
+        margin-bottom: 0;
+
+    }
+}
+
+.img-menu {
+    position: relative;
+}
+
+img {
+
+    width: 100%;
+}
+
+.book-menu {
+    display: flex;
+    justify-content: center;
+    padding-bottom: 30px;
+}
+
+
+/***Boutton***/
+
+
+.book-boutton-menu {
+    color: white;
+    background-image: linear-gradient(to top, #9356DC, #FF79DA);
+    padding: 5px;
+    height: 50px;
+    border-radius: 25px;
+    font-size: 16px;
+    width: 230px;
+    font-weight: bold;
+    border: none;
+    @include hover;
+    @include shadow;
+}
+
+.position-menu {
+    position: absolute;
+    width: 100%;
+    margin-top: -55px;
+}
+
+/****animation apparition carte menu****/
+
+.entree {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+
+    animation-delay: 0.5s;
+}
+
+.plats {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+    animation-delay: 1s;
+}
+
+.desserts {
+    opacity: 0;
+    animation: fadeIn 1s ease forwards;
+
+    animation-delay: 1.5s;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+
+
+/***heart****/
+.heart-menu {
+
+    position: relative;
+    bottom: 31px;
+    left: 82%;
+    width: 40px;
+
+    & .empty {
+        position: absolute;
+        z-index: 3;
+        opacity: 1;
+        color: black;
+        background-color: #f6f6f6;
+        font-size: 26px;
+
+
+        &:hover {
+            opacity: 0;
+            transition: 200ms;
+        }
+    }
+
+
+    & .full {
+        z-index: 2;
+        background: linear-gradient(to top, #9356DC, #FF79DA);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        font-size: 24px;
+    }
+}
+/*******fin du code heart*****/
+
+
+
+ul {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0;
+    align-items: center;
+    gap: 15px;
+}
+
+.entree-plats-desserts h2 {
+
+    font-family: "roboto", sans-serif;
+    padding-left: 20px;
+    font-size: 17px;
+    font-weight: 100;
+    position: relative;
+    padding-top: 0;
+
+    /***barre  verte en dessous du sous-titre***/
+    &::after {
+        content: "";
+        position: absolute;
+        top: 20px;
+        left: 20px;
+        height: 3px;
+        width: 45px;
+        background-color: #99e2d0;
+    }
+
+}
+
+.info {
+
+    p {
+        font-size: 12px;
+    }
+}
+
+.indication {
+    display: flex;
+    width: 100%;
+    gap: 5%;
+    justify-content: space-between;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+
+
+/**** animation check ****/
+.check {
+    display: flex;
+    justify-content: flex-end;
+    width: 60px;
+    height: 100%;
+    border-radius: 0px 16px 16px 0px;
+    transition: all 0.3s ease-out;
+    opacity: 0;
+    background-color: #99e2d0;
+}
+
+
+.choix {
+    font-family: "roboto", sans-serif;
+    display: flex;
+    border-radius: 20px;
+    align-items: center;
+    height: 90px;
+    background-color: white;
+    width: 95%;
+    position: relative;
+    @include shadow;
+
+    /****texte rogné****/
+    &:hover {
+
+        h3,
+        .info p {
+            width: 75%;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+        }
+    }
+
+    h3 {
+        margin-top: 5px;
+        margin-bottom: 0;
+        font-size: 15px;
+    }
+
+
+    i {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin: 26px 16px 20px 16px;
+        width: 10px;
+        height: 10px;
+        border-radius: 50px;
+        background-color: white;
+        padding: 10px;
+    }
+
+    .fa-check {
+        font-size: 16px;
+        color: #99e2d0;
+    }
+
+    &:hover span {
+    
+        opacity: 1;
+        transition: all 0.3s ease-out;
+
+    }
+
+    &:hover .fa-check {
+        transition: all 0.5s ease-out;
+        transform: rotate(-360deg);
+    }
+
+    &:hover .price {
+        transform: translateX(-60px);
+        transition: all 0.3s ease-out;
+        opacity: 1;
+    }
+}
+.price {
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: 14px;
+    position: relative;
+    left: 45px;
+
+}
+
+
+
+/****responsive*****/
+
+
+@media screen and (min-width: 769px) {
+    img {
+        height: 400px;
+    }
+
+    .menu-section {
+        display: flex;
+        justify-content: center;
+        margin-top: 25px;
+    }
+
+    .menu {
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+
+        @media screen and (min-width: 1643px) {
+            width: 53%;
+
+        }
+    }
+
+    .menu-title {
+        width: 36%;
+    }
+
+    .menu-title h2 {
+        text-align: center;
+    }
+
+    .affiche-menu {
+        width: 80%;
+
+    }
+
+    .heart-menu {
+        left: 110%;
+    }
+
+    .choix {
+        width: 100%;
+
+        &:hover {
+
+            h3,
+            .info p {
+                width: 100%;
+                text-overflow: ellipsis;
+                overflow: hidden;
+                white-space: nowrap;
+            }
+        }
+
+        &:hover .price {
+            transform: translateX(-60px);
+            transition: all 0.3s ease-out;
+            opacity: 1;
+        }
+    }
+
+    .price {
+        &:hover {
+            transform: translateX(-60px);
+            transition: all 0.3s ease-out;
+            opacity: 1;
+        }
+    }
+
+}
